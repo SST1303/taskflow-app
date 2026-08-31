@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="brand">TaskFlow</div>
+        <div class="nav-right">
+            <span id="user-greeting">Welcome, User</span>
+            <button id="logout-btn" class="btn secondary-btn">Logout</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Controls Bar -->
+        <div class="controls-bar">
+            <button id="open-task-modal-btn" class="btn primary-btn">+ Add Task</button>
+
+            <div class="filters">
+                <select id="filter-status">
+                    <option value="">All Statuses</option>
+                    <option value="todo">To Do</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="done">Done</option>
+                </select>
+                <select id="filter-priority">
+                    <option value="">All Priorities</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Feedback Message / Loading state -->
+        <div id="dashboard-message" class="message"></div>
+
+        <!-- Tasks Grid / Columns -->
+        <div id="tasks-container" class="tasks-grid"></div>
+    </main>
+
+    <!-- Add/Edit Task Modal -->
+    <div id="task-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal-btn" class="close-btn">&times;</span>
+            <h3 id="modal-title">Create Task</h3>
+
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                <div class="form-group">
+                    <label>Title *</label>
+                    <input type="text" id="task-title" required placeholder="Task title">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="task-desc" rows="3" placeholder="Task description..."></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select id="task-status">
+                            <option value="todo">To Do</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="done">Done</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select id="task-priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Due Date</label>
+                    <input type="date" id="task-due-date">
+                </div>
+                <button type="submit" class="btn primary-btn" id="modal-submit-btn">Save Task</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
