@@ -52,7 +52,8 @@ TaskFlow/
 
 ---
 
-🚀 Setup & Installation Instructions
+## 🚀 Setup & Installation Instructions
+
 1. Prerequisites
 Node.js (v16.0 or higher)
 
@@ -90,7 +91,8 @@ Open your browser and navigate to: http://localhost:5000
 
 ---
 
-🔐 Environment Variables (.env.example)
+## 🔐 Environment Variables (.env.example)
+
 The following environment variables are required to run this application:  
 Code snippet :
 PORT=5000
@@ -102,7 +104,8 @@ JWT_SECRET=your_jwt_secret_key
 
 ---
 
-🗄️ Database Choice & Rationale
+## 🗄️ Database Choice & Rationale
+
 Database Chosen: MySQL  
 Why MySQL?
 Relational Data Integrity: The application relies on a strict 1-to-Many relationship between users and tasks. MySQL enforces data integrity using Foreign Key constraints (user_id referencing users.id) with ON DELETE CASCADE behavior.  
@@ -111,15 +114,14 @@ ACID Compliance: Ensures consistent and safe transactions for user registration 
 
 ---
 
-⚠️ Known Limitations & Assumptions
-Assumptions:
+## ⚠️ Known Limitations & Assumptions
+
+**Assumptions:**
 Authentication & Sessions: Authentication uses JSON Web Tokens (JWT) stored in browser localStorage and passed via the Authorization: Bearer <token> header.  
 User Privacy & Ownership: Users can only view, create, edit, and delete their own tasks. Authorization is enforced on every database query using the authenticated user ID[cite: 1].  
 Status Options: Task progression is constrained to three statuses: todo, in-progress, and done[cite: 1].
 
----
-
-Limitations:
+**Limitations:**
 Token Invalidation: JWTs expire after 24 hours without server-side token blacklisting on logout (logout is handled by clearing the client-side token).
 Password Recovery: There is currently no "Forgot Password" or email verification workflow.
 File Attachments: Tasks support text descriptions only; media or file attachments are not supported.
