@@ -116,12 +116,12 @@ ACID Compliance: Ensures consistent and safe transactions for user registration 
 
 ## ⚠️ Known Limitations & Assumptions
 
-**Assumptions:**
+Assumptions:
 Authentication & Sessions: Authentication uses JSON Web Tokens (JWT) stored in browser localStorage and passed via the Authorization: Bearer <token> header.  
 User Privacy & Ownership: Users can only view, create, edit, and delete their own tasks. Authorization is enforced on every database query using the authenticated user ID[cite: 1].  
 Status Options: Task progression is constrained to three statuses: todo, in-progress, and done[cite: 1].
 
-**Limitations:**
+Limitations:
 Token Invalidation: JWTs expire after 24 hours without server-side token blacklisting on logout (logout is handled by clearing the client-side token).
 Password Recovery: There is currently no "Forgot Password" or email verification workflow.
 File Attachments: Tasks support text descriptions only; media or file attachments are not supported.
